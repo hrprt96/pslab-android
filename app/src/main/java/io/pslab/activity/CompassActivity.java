@@ -133,7 +133,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         tvShadow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bottomSheetBehavior.getState()==BottomSheetBehavior.STATE_EXPANDED)
+                if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED)
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 tvShadow.setVisibility(View.GONE);
             }
@@ -181,6 +181,18 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
 
         degreeIndicator.setText(String.valueOf(degree));
         currentDegree = -degree;
+
+
+        double bx = (event.values[0]);
+        String xaxis = String.format("%.3f", bx);
+        double by = (event.values[1]);
+        String yaxis = String.format("%.3f", by);
+        double bz = (event.values[2]);
+        String zaxis = String.format("%.3f", bz);
+
+        xAxisMagneticField.setText(xaxis);
+        yAxisMagneticField.setText(yaxis);
+        zAxismagneticField.setText(zaxis);
     }
 
     @Override
